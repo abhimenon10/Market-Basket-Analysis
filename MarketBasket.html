@@ -196,7 +196,7 @@ library(dplyr)</code></pre>
 ##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>library(readxl)
 library(arulesViz)</code></pre>
-<p><em>Problem Statement:Finding the best item’s to bundle for promotion with the items Pasta Sauce</em> <em>Part 1: Reading data from the transaction file:</em></p>
+<p><em>Problem Statement:Finding the best item’s to bundle for promotion with the items Pasta Sauce due to surplus inventory</em> <em>Part 1: Reading data from the transaction file:</em></p>
 <pre class="r"><code>setwd(&quot;C:\\Users\\abhit\\OneDrive\\Documents\\Uni\\Marketing analytics&quot;)
 Transaction_1 = read.transactions(&quot;Market_Basket_Optimisation.csv&quot;, format = &#39;basket&#39;, sep = &#39;,&#39;)</code></pre>
 <pre><code>## Warning in asMethod(object): removing duplicated items in transactions</code></pre>
@@ -370,7 +370,7 @@ Transaction_1 = read.transactions(&quot;Market_Basket_Optimisation.csv&quot;, fo
 <pre><code>## set of 18 rules</code></pre>
 <p><em>Part 3: Finding best combination with the Product Pasta sauce </em></p>
 <pre class="r"><code>rules&lt;-apriori(Transaction_1,parameter = list(support = 0.1, conf = .05, maxlen = 2),
-               appearance = list(lhs=&quot;pasta&quot;, default = &quot;rhs&quot;))</code></pre>
+               appearance = list(lhs=&quot;pasta&quot;, default = &quot;rhs&quot;)) #finding products purchases with pasta sauce</code></pre>
 <pre><code>## Apriori
 ## 
 ## Parameter specification:
@@ -401,7 +401,7 @@ Transaction_1 = read.transactions(&quot;Market_Basket_Optimisation.csv&quot;, fo
 ## [5] {}  =&gt; {eggs}          0.1797094 0.1797094  1        1    1348 
 ## [6] {}  =&gt; {spaghetti}     0.1741101 0.1741101  1        1    1306 
 ## [7] {}  =&gt; {mineral water} 0.2383682 0.2383682  1        1    1788</code></pre>
-<p><em>Part 4: Inference</em> <em>Based on the results above we can clearly see that along with pasta sauce mineral water, spaghetti and eggs are usually bought together. We can ignore mineral water as that is a common purchase so we can not confidently say that there is a relationship between pasta sauce and spaghetti so we choose the next two options that is spaghetti and eggs.</em></p>
+<p><em>Part 4: Inference</em> <em>Based on the results above we can clearly see that along with pasta s sauce mineral water, spaghetti and eggs are usually bought together. We can ignore mineral water as that is a common purchase so we can not confidently say that there is a relationship between pasta sauce and mineral water so we choose the next two options that is spaghetti and eggs.</em></p>
 
 
 

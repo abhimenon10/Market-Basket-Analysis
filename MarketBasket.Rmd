@@ -20,7 +20,7 @@ library(arulesViz)
 
 ```
 
-*Problem Statement:Finding the best item's to bundle for promotion with the items Pasta Sauce*
+*Problem Statement:Finding the best item's to bundle for promotion with the items Pasta Sauce due to surplus inventory*
 *Part 1: Reading data from the transaction file:*
 ```{r}
 setwd("C:\\Users\\abhit\\OneDrive\\Documents\\Uni\\Marketing analytics")
@@ -40,9 +40,9 @@ print(rules)
 *Part 3: Finding best combination with the Product Pasta sauce *
 ```{r}
 rules<-apriori(Transaction_1,parameter = list(support = 0.1, conf = .05, maxlen = 2),
-               appearance = list(lhs="pasta", default = "rhs"))
+               appearance = list(lhs="pasta", default = "rhs")) #finding products purchases with pasta sauce
 inspect(rules)
 ```
 *Part 4: Inference*
-*Based on the results above we can clearly see that along with pasta sauce mineral water, spaghetti and eggs are usually bought together. We can ignore mineral water as that is a common purchase so we can not confidently say that there is a relationship between pasta sauce and spaghetti so we choose the next two options that is spaghetti and eggs.*  
+*Based on the results above we can clearly see that along with pasta s sauce mineral water, spaghetti and eggs are usually bought together. We can ignore mineral water as that is a common purchase so we can not confidently say that there is a relationship between pasta sauce and mineral water so we choose the next two options that is spaghetti and eggs.*  
 
